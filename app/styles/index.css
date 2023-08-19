@@ -8,7 +8,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.main-nav {
+.navbar {
   width: 100%;
   height: 3rem;
   background-color: #ff734f;
@@ -18,7 +18,7 @@ body {
   padding: 0 1rem 0 0;
 }
 
-.main-nav__button-list {
+.navbar__links-list {
   display: flex;
   gap: 0.5rem;
 }
@@ -68,6 +68,11 @@ aside {
   display: inline-block;
 }
 
+.footer__copyright {
+  font-size: .75rem;
+  color: #646c7a;
+}
+
 .btn-link {
   background-color: #286f6c;
   color: #ffffff;
@@ -90,7 +95,3 @@ aside {
   background-color: #7105de;
 } */
 
-.copyright-text {
-  font-size: .75rem;
-  color: #646c7a;
-}
