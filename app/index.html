@@ -6,20 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>My Website</title>
 
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/index.css" />
   </head>
 
   <body>
-    <!-- Navigation -->
-
-    <div>
-      <!-- Sidebar -->
-      <!-- Main -->
-      <h2>Hello World</h2>
+    <nav class="navbar">
+      <ul class="navbar__links-list">
+        <li><a class="btn-link" href="./">Home</a></li>
+        <li><a class="btn-link" href="./about.html">About</a></li>
+        <li><a class="btn-link" href="./contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="flex-main">
+      <aside>
+        <img
+          src="https://github.com/claireryberg.png?size=150"
+          alt="Avatar for Claire Ryberg of a Meowl"
+          class="avatar"
+        />
+        <h2>Hi, my name is Claire</h2>
+        <p>This is my website</p>
+      </aside>
+      <main class="main">
+          <h1 class="main__title">Welcome to My Website</h1>
+          <img class="main__center-image" src="./media/programming_meme.jpeg" alt="Meme of the 'Aliens' guy, with white text that says 'Programming'">
+      </main>
     </div>
-
-    <!-- Footer -->
+    <footer class="footer">
+      <h2>Thank you for visiting</h2>
+      <a class="btn-link footer__btn-link" href="./contact.html">Contact</a>
+      <p class="footer__copyright">© copyright 2023</p>
+    </footer>
   </body>
 </html>
