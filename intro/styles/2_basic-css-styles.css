@@ -1,0 +1,56 @@
+/* this is how you add styles to an element */
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+main {
+  background-color: lavender;
+  min-height: 100vh;
+  padding: 32px;
+
+  /* For the positioning step */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.block {
+  width: 300px;
+  /* min-width: 300px; */
+  height: 150px;
+  /* min-height: 150px; */
+  background-color: cornflowerblue;
+  border-radius: 10px;
+
+  /* For the positioning step */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* text-align: center; */
+
+  padding: 8px;
+
+  /* For the Hover example */
+  /* transition: all 0.5s ease-out; */
+}
+
+span {
+  color: white;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 16px;
+}
+
+span.block-title {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* .flash:hover {
+    background-color: coral;
+  } */

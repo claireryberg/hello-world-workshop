@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript Introduction</title>
+  </head>
+
+  <body>
+    <main>
+      <h1>What Can Javascript Do?</h1>
+      <hr />
+
+      <h2>Example 1:</h2>
+      <p>
+        Javascript can access data on the page and trigger an action with it
+      </p>
+
+      <div>
+        <strong>My name is: </strong><span id="your_name">[Your Name]</span>
+      </div>
+      <button onclick="showNameAlert()">Click me!</button>
+
+      <br /><br /><br />
+
+      <h2>Example 2:</h2>
+      <p>Javascript can access and change values</p>
+
+      <div><strong>My name is: </strong><span id="dynamic_name"></span></div>
+      <br />
+      <form onsubmit="submitForm(event)">
+        <label>
+          Enter your name
+          <input type="text" id="name_input" required />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+
+      <br /><br /><br />
+
+      <h2>Example 3:</h2>
+      <p>Javascript can change the default behavior of html elements</p>
+      <!-- 3a -->
+      <a href="https://www.google.com" target="_blank">Click me</a>
+
+      <!-- 3b -->
+      <a href="#" onclick="showNameAlert()">Click me</a>
+
+      <br /><br /><br />
+
+      <h2>Example 4:</h2>
+      <p>Javascript can make non-clickable things clickable</p>
+
+      <strong>Click the lightbulb</strong>
+      <img
+        onclick="toggleLight()"
+        id="myImage"
+        alt="Click the lightbulb to turn it on and off"
+        src="./media/pic_bulboff.png"
+        style="width: 100px"
+        isTurnedOff="true"
+      />
+
+      <!-- note that the image is clickable but not tabbable. See what happens if you wrap it in a button -->
+
+      <br /><br /><br />
+
+      <h2>Example 5:</h2>
+      <p>Javascript can fetch data from a BE endpoint</p>
+
+      <form onsubmit="fetchPokemon(event)">
+        <label>
+          Pokémon name
+          <input type="text" id="pokemon_name" required />
+        </label>
+        <button type="submit">Submit</button>
+      </form>
+      <div id="pokemon_image_wrapper" style="height: 300px"></div>
+    </main>
+
+    <script>
+      // Example 1
+      const showNameAlert = () => {
+        const name = document.getElementById("your_name").innerText;
+        alert(name);
+      };
+
+      // Example 2
+      const submitForm = (event) => {
+        event.preventDefault();
+
+        const enteredName = document.getElementById("name_input").value;
+        const nameRegion = document.getElementById("dynamic_name");
+
+        nameRegion.innerText = enteredName;
+      };
+
+      // Example 4
+      const toggleLight = () => {
+        const lightsOff = "./media/pic_bulboff.png";
+        const lightsOn = "./media/pic_bulbon.png";
+
+        const lightbulbImage = document.getElementById("myImage");
+
+        if (lightbulbImage.getAttribute("isTurnedOff") === "true") {
+          lightbulbImage.src = lightsOn;
+          lightbulbImage.setAttribute("isTurnedOff", "false");
+        } else {
+          lightbulbImage.src = lightsOff;
+          lightbulbImage.setAttribute("isTurnedOff", "true");
+        }
+      };
+
+      // Example 5
+      const fetchPokemon = async () => {
+        event.preventDefault();
+
+        const name = document.getElementById("pokemon_name").value;
+
+        const data = await fetch(
+          `https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`
+        );
+        const result = await data.json();
+
+        console.log({ result: result.sprites.front_default });
+        const imageSrc = result.sprites.front_default;
+
+        const pokemonImage = document.getElementById("pokemon_image");
+        if (!!pokemonImage) {
+          pokemonImage.src = imageSrc;
+        } else {
+          const newPokemonImage = document.createElement("img");
+          newPokemonImage.setAttribute("id", "pokemon_image");
+          newPokemonImage.setAttribute("height", "300px");
+          newPokemonImage.setAttribute("src", imageSrc);
+
+          document
+            .getElementById("pokemon_image_wrapper")
+            .appendChild(newPokemonImage);
+        }
+      };
+    </script>
+  </body>
+</html>
